@@ -1,8 +1,9 @@
-var socket_client = require('socket.io-client')
 var fs = require("fs")
 var querystring = require('querystring')
 var http = require('http')
 var assert = require('assert');
+var sock = require('socket.io-client')
+var socket_client = sock(http)
 
 /*
 var url = 'localhost'
@@ -91,18 +92,13 @@ var test_post = function(url, port_num, path_str, obj, callbacks) {
   post_req.end();
 }
 
-var test_socket = function(url, comunication, callbacks){
+var test_socket = function(url){
 	var socket = socket_client(url)
-		if(communication.connect == true){
-			socket.on('connect', function(){})
-			events_list = communication.events
-			for(var events in events_list){
-				console.log(events_list[events])
-				/*
-					TBD
-				*/
-			}
-		}
+	socket.on('connect', function(){
+		socket.on('msg', function (from, msg) {
+    	console.log('message [', from, ']:', msg);
+  	});
+	});
 }
 
 var contents = fs.readFileSync("test_config.json")
