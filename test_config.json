@@ -1,0 +1,92 @@
+{
+  "test_num" : 3,
+  "test1" : {
+    "url" : "localhost",
+    "post_num" : 3000,
+    "get_num" : 3000,
+    "sock_num" : 3001,
+    "testing_procedure" : [
+      {
+        "type" : "post",
+        "request" : "/create_room",
+        "data" : {
+          "room_id" : 123
+        },
+        "expected" : "ok"
+      },
+      {
+        "type" : "post",
+        "request" : "/send",
+        "data" : {
+          "msg" : "Hello!",
+          "sender" : "Songyu",
+          "room_id" : 123
+        },
+        "expected" : "error"
+      },
+      {
+        "type" : "post",
+        "request" : "/send",
+        "data" : {
+          "msg" : "Hello x 2",
+          "sender" : "Songyu",
+          "room_id" : 123
+        },
+        "expected" : "error"
+      }
+    ]
+  },
+
+  "test2" : {
+    "url" : "localhost",
+    "post_num" : 3000,
+    "get_num" : 3000,
+    "sock_num" : 3001,
+    "testing_procedure" : [
+      {
+        "request" : "/send",
+        "data" : {
+          "msg" : "Hello!",
+          "sender" : "Songyu",
+          "room_id" : 123
+        },
+        "expected" : "error"
+      },
+      {
+        "request" : "/send",
+        "data" : {
+          "msg" : "Hello x 2",
+          "sender" : "Songyu",
+          "room_id" : 123
+        },
+        "expected" : "error"
+      }
+    ]
+  },
+  "test3" : {
+    "url" : "localhost",
+    "post_num" : 3000,
+    "get_num" : 3000,
+    "sock_num" : 3001,
+    "testing_procedure" : [
+      {
+        "request" : "/send",
+        "data" : {
+          "msg" : "Hello!",
+          "sender" : "Songyu",
+          "room_id" : 123
+        },
+        "expected" : "error"
+      },
+      {
+        "request" : "/send",
+        "data" : {
+          "msg" : "Hello x 2",
+          "sender" : "Songyu",
+          "room_id" : 123
+        },
+        "expected" : "error"
+      }
+    ]
+  }
+}
