@@ -17,7 +17,6 @@ var unit_test = function(obj){
 	var url = obj.url
 	var port_num = obj.post_num
 	var get_num = obj.get_num
-	var sock = obj.sock_num
 	var proc = obj.testing_procedure
 	proc.forEach(function(subtest){
 		if(subtest.type == 'post'){
@@ -35,16 +34,7 @@ var unit_test = function(obj){
 		}
 
 		else if (subtest.type == 'sock'){
-			describe('Respnse', function(){
-				describe('#test_socket()', function(){
-					it('Testing type not supported.', function(){
-						test_post(url, port_num, subtest.request, data, function(str){
-							//console.log('response msg: ', str)
-							assert.equal(1, null)
-						})
-					})
-				})
-			})
+			test_socket(obj.url)
 		}
 		else{
 			describe('Respnse', function(){
