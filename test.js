@@ -24,9 +24,10 @@ var unit_test = function(obj){
 			describe('Respnse', function(){
 				describe('#test_post()', function(){
 					it('should get respnse of what expected', function(){
-						test_post(url, port_num, subtest.request, data, function(str){
+						test_post(url, port_num, subtest.request, data, function(ret, msg){
 							//console.log('response msg: ', str)
-							assert.equal(subtest.expected, str)
+							assert.equal(subtest.expectedCode, ret)
+							assert.equal(subtest.expectedMsg, msg)
 						})
 					})
 				})
@@ -68,14 +69,10 @@ var test_post = function(url, port_num, path_str, obj, callbacks) {
 
   var post_req = http.request(post_options, function(res) {
 			//console.log(res)
-      res.setEncoding('utf8');
-			var str = ''
-			res.on('data', function(chunk){
-				str += chunk
-			})
-			res.on('end', function(){
-				callbacks(str)
-			})
+      res.setEncoding('utf8')
+			var ret = response.statusCode
+			var msg = response.statusMessage
+			callbacks(ret, msg)
   });
 
   post_req.write(post_data);

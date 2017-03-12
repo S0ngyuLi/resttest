@@ -12,7 +12,8 @@
         "data" : {
           "room_id" : 123
         },
-        "expected" : "ok"
+        "expectedCode" : "200",
+        "expectedMsg" : "Any"
       },
       {
         "type" : "post",
@@ -22,7 +23,8 @@
           "sender" : "Songyu",
           "room_id" : 123
         },
-        "expected" : "ok"
+        "expectedCode" : "200",
+        "expectedMsg" : "Any"
       },
       {
         "type" : "post",
@@ -32,7 +34,8 @@
           "sender" : "Songyu",
           "room_id" : 123
         },
-        "expected" : ""
+        "expectedCode" : "200",
+        "expectedMsg" : "Any"
       }
     ]
   }
