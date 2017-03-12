@@ -1,5 +1,5 @@
 {
-  "test_num" : 3,
+  "test_num" : 1,
   "test1" : {
     "url" : "localhost",
     "post_num" : 3000,
@@ -8,7 +8,7 @@
     "testing_procedure" : [
       {
         "type" : "post",
-        "request" : "/create_room",
+        "request" : "/sock/create_room",
         "data" : {
           "room_id" : 123
         },
@@ -16,76 +16,23 @@
       },
       {
         "type" : "post",
-        "request" : "/send",
+        "request" : "/sock/send",
         "data" : {
           "msg" : "Hello!",
           "sender" : "Songyu",
           "room_id" : 123
         },
-        "expected" : "error"
+        "expected" : "ok"
       },
       {
         "type" : "post",
-        "request" : "/send",
+        "request" : "/sock/send",
         "data" : {
           "msg" : "Hello x 2",
           "sender" : "Songyu",
           "room_id" : 123
         },
-        "expected" : "error"
-      }
-    ]
-  },
-
-  "test2" : {
-    "url" : "localhost",
-    "post_num" : 3000,
-    "get_num" : 3000,
-    "sock_num" : 3001,
-    "testing_procedure" : [
-      {
-        "request" : "/send",
-        "data" : {
-          "msg" : "Hello!",
-          "sender" : "Songyu",
-          "room_id" : 123
-        },
-        "expected" : "error"
-      },
-      {
-        "request" : "/send",
-        "data" : {
-          "msg" : "Hello x 2",
-          "sender" : "Songyu",
-          "room_id" : 123
-        },
-        "expected" : "error"
-      }
-    ]
-  },
-  "test3" : {
-    "url" : "localhost",
-    "post_num" : 3000,
-    "get_num" : 3000,
-    "sock_num" : 3001,
-    "testing_procedure" : [
-      {
-        "request" : "/send",
-        "data" : {
-          "msg" : "Hello!",
-          "sender" : "Songyu",
-          "room_id" : 123
-        },
-        "expected" : "error"
-      },
-      {
-        "request" : "/send",
-        "data" : {
-          "msg" : "Hello x 2",
-          "sender" : "Songyu",
-          "room_id" : 123
-        },
-        "expected" : "error"
+        "expected" : ""
       }
     ]
   }
